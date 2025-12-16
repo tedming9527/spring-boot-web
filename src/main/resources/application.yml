@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: spring-boot-web
+#  mvc:
+#    path match:
+#      matching-strategy: ant_path_matcher
