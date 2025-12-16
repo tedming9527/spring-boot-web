@@ -1,6 +1,37 @@
 spring:
   application:
     name: spring-boot-web
-#  mvc:
-#    path match:
-#      matching-strategy: ant_path_matcher
+knife4j:
+  enable: true
+  setting:
+    language: zh-CN
+    home-custom-path: /web/api-docs
+    home-custom-location: /web/api-docs
+    footer-custom-content: /web/api-docs
+# ??????
+#  basic:
+#    enable: true
+#    password: admin
+#    username: admin
+#    include: document,swagger
+
+springdoc:
+  # ?? localhost:8080/v3/api-docs ?????openapi???json, ??/v3/api-docs????
+  api-docs:
+    path: /web/api-docs
+    enabled: true
+  swagger-ui:
+    url: /web/api-docs
+    config-url: /web/api-docs/swagger-config
+
+
+
+#  group-configs:
+#    - group: "user-api"
+#      paths-to-match: "/users/**"
+#      packages-to-scan:
+#        - org.example.springbootweb.controller
+#    - group: "order-api"
+#      paths-to-match: "/orders/**"
+#      packages-to-scan:
+#        - org.example.springbootweb.controller

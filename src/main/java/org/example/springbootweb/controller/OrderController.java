@@ -6,13 +6,13 @@ import org.example.springbootweb.entity.User;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/users")
-@Tag(name = "用户接口", description = "用户接口")
-public class UserController {
+@RequestMapping("/orders")
+@Tag(name = "订单接口", description = "订单接口")
+public class OrderController {
   // 新的机遇 path_pattern_matcher 的匹配机制
   @GetMapping
-  public String getUsers() {
-    return "getUsers";
+  public String getOrders() {
+    return "getOrders";
   }
   @GetMapping("/{id}")
   public  String get(@PathVariable Integer id) {
