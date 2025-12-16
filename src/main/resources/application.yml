@@ -3,11 +3,14 @@ spring:
     name: spring-boot-web
 knife4j:
   enable: true
+
   setting:
     language: zh-CN
     home-custom-path: /web/api-docs
     home-custom-location: /web/api-docs
     footer-custom-content: /web/api-docs
+    enable-swagger-models: true
+    swagger-model-name: Swagger Models
 # ??????
 #  basic:
 #    enable: true
@@ -16,14 +19,9 @@ knife4j:
 #    include: document,swagger
 
 springdoc:
-  # ?? localhost:8080/v3/api-docs ?????openapi???json, ??/v3/api-docs????
+  # ?? localhost:8080/v3/api-docs ?????openapi???json, ??/v3/api-docs????,???????
   api-docs:
-    path: /web/api-docs
-    enabled: true
-  swagger-ui:
-    url: /web/api-docs
-    config-url: /web/api-docs/swagger-config
-
+    path: /v3/api-docs
 
 
 #  group-configs:
