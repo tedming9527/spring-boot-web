@@ -1,35 +1,17 @@
 spring:
   application:
     name: spring-boot-web
+
 knife4j:
   enable: true
-
   setting:
     language: zh-CN
-    home-custom-path: /web/api-docs
-    home-custom-location: /web/api-docs
-    footer-custom-content: /web/api-docs
-    enable-swagger-models: true
-    swagger-model-name: Swagger Models
+    enable-home-custom: true
+    home-custom-location: classpath:markdown/home.md
+    home-custom-path: classpath:markdown/home.md
 # ??????
 #  basic:
 #    enable: true
 #    password: admin
 #    username: admin
 #    include: document,swagger
-
-springdoc:
-  # ?? localhost:8080/v3/api-docs ?????openapi???json, ??/v3/api-docs????,???????
-  api-docs:
-    path: /v3/api-docs
-
-
-#  group-configs:
-#    - group: "user-api"
-#      paths-to-match: "/users/**"
-#      packages-to-scan:
-#        - org.example.springbootweb.controller
-#    - group: "order-api"
-#      paths-to-match: "/orders/**"
-#      packages-to-scan:
-#        - org.example.springbootweb.controller
