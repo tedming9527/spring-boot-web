@@ -9,14 +9,16 @@ import java.time.LocalDate;
 @Data
 public class User {
   private Integer id;
-  @NotBlank(message = "name不能为空")
+  @NotBlank(message = "name 不能为空")
   private String name;
-  @Min(value = 0, message = "age不能小于0")
+  @Pattern(regexp = "^(male|female)$", message = "性别值只能是 male 或者 female")
+  private String gender;
+  @Min(value = 0, message = "age 不能小于 0")
   private Integer age;
-  @Email(message = "email格式不正确")
+  @Email(message = "email 格式不正确")
   private String email;
-  @NotNull(message = "birthday不能为空")
-  @Past(message = "birthday必须是过去的时间")
+  @NotNull(message = "birthday 不能为空")
+  @Past(message = "birthday 必须是过去的时间")
   @JsonFormat(pattern = "yyyy-MM-dd")
   private LocalDate birthday;
 }
