@@ -1,34 +1,18 @@
 package org.example.springbootweb.controller;
 
-import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
-import org.example.springbootweb.entity.User;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.stereotype.Controller;
 
-@RestController
-@RequestMapping("/users")
-@Tag(name = "用户接口", description = "用户接口")
+/**
+ * <p>
+ *  前端控制器
+ * </p>
+ *
+ * @author ted
+ * @since 2025-12-26
+ */
+@Controller
+@RequestMapping("/user")
 public class UserController {
-  // 新的机遇 path_pattern_matcher 的匹配机制
-  @GetMapping
-  public String getUsers() {
-    return "getUsers";
-  }
-  @GetMapping("/{id}")
-  public  String get(@PathVariable Integer id) {
-    return "get " + id;
-  }
 
-  @PostMapping
-  public User save(@RequestBody @Valid User user) {
-    return user;
-  }
-  @PutMapping
-  public String update(@RequestBody User user) {
-    return "update " + user.getId();
-  }
-  @DeleteMapping("/{id}")
-  public String delete(@PathVariable Integer id) {
-    return "delete " + id;
-  }
 }

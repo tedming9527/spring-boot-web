@@ -1,24 +1,63 @@
 package org.example.springbootweb.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.validation.constraints.*;
-import lombok.Data;
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-@Data
-public class User {
-  private Integer id;
-  @NotBlank(message = "name 不能为空")
-  private String name;
-  @Pattern(regexp = "^(male|female)$", message = "性别值只能是 male 或者 female")
-  private String gender;
-  @Min(value = 0, message = "age 不能小于 0")
-  private Integer age;
-  @Email(message = "email 格式不正确")
-  private String email;
-  @NotNull(message = "birthday 不能为空")
-  @Past(message = "birthday 必须是过去的时间")
-  @JsonFormat(pattern = "yyyy-MM-dd")
-  private LocalDate birthday;
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author ted
+ * @since 2025-12-26
+ */
+@Getter
+@Setter
+@ToString
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
+
+    /**
+     * 生日
+     */
+    private LocalDate birthday;
+
+    /**
+     * 邮箱
+     */
+    private String email;
+
+    /**
+     * 性别
+     */
+    private String gender;
+
+    /**
+     * 姓名
+     */
+    private String name;
+
+    @TableField(fill = FieldFill.INSERT)
+    private LocalDateTime createTime;
+
+    @TableField(fill = FieldFill.INSERT)
+    private String creator;
+
+    @TableField(fill = FieldFill.UPDATE)
+    private LocalDateTime updateTime;
+
+    private String updater;
 }
